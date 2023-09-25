@@ -1,0 +1,35 @@
+{% extends 'main/layout.html' %}
+{% load static %}
+{% block link %}
+<link rel="stylesheet" href="{% static 'main/style/write.css' %}">
+{% endblock %}
+{% block title %} Обо мне {% endblock %}
+
+{% block links %}
+<ul class="navbar-nav mr-auto">
+    <li class="nav-item"><a href="{% url 'about' %}" class="nav-link">Обо мне</a></li>
+    <li class="nav-item"><a href="{% url 'home' %}" class="nav-link">Портфолио</a></li>
+    <li class="nav-item"><a href="{% url 'home' %}" class="nav-link">Отзывы</a></li>
+    <li class="nav-item"><a href="{% url 'home' %}" class="nav-link">Прайс</a></li>
+    <li class="nav-item"><a href="#" class="nav-link">+7 (812) 660-50-88</a></li>
+</ul>
+{% endblock %}
+
+{% block content %}
+<main>
+    <div class="circle col-4"></div>
+    <section class="write">
+        <div class="container text-center">
+            <h2 class="mb-5">Запишитесь на маникюр, ваши красивые ногти ждут</h2>
+            <form action="" method="">
+                <input type="text" placeholder="Введите имя" class="col-12 col-md-8 mb-3">
+                <input type="text" placeholder="Введите фамилию" class="col-12 col-md-8 mb-3">
+                <input type="text" placeholder="Вид услуги" class="col-12 col-md-8 mb-3">
+                <input type="text" placeholder="Номер телефона" class="col-12 col-md-8 mb-3">
+                <button class="sign-button">Записаться</button>
+            </form>
+        </div>
+    </section>
+    <div class="circle circle2 col-4"></div>
+</main>
+{% endblock %}

@@ -1,0 +1,47 @@
+@import url(base.css);
+
+/* about-me */
+
+.about-me-content {
+    display: flex;
+    justify-content: space-between;
+}
+
+.about-me-img img {
+    border-radius: 250px 250px 0px 0px;
+    max-width: 470px;
+    max-height: 700px;
+}
+
+@media (max-width: 575px) {
+    .about-me-text {
+        text-align: center;
+    }
+    .about-me-img {
+        display: flex;
+        justify-content: center;
+    }
+    .about-me-img img {
+        max-width: 290px;
+        max-height: 430px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991px) { 
+    .about-me-img img {
+        max-width: 330px;
+        max-height: 520px;
+    }
+}
+
+/* i-have */
+
+.i-have {
+    position: relative;
+}
+
+@media (max-width: 991px) { 
+    .i-have {
+        text-align: center;
+    }
+}

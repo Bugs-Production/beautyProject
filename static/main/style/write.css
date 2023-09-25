@@ -1,0 +1,50 @@
+@import url(base.css);
+
+/* Стили для форм */
+
+.write {
+    position: relative;
+    z-index: 1;
+}
+
+.circle2 {
+    right: 0px;
+    bottom: -100px;
+    z-index: 0;
+}
+
+input {
+    background-image: url('../img/arrow.png');
+    background-repeat: no-repeat;
+    background-position: right 5% bottom 45%;
+    border: 1px solid #000;
+    padding: 15px;
+    outline: none;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+    .circle2 {
+        bottom: 500px;
+    }
+}
+
+@media (max-width: 575px) {
+    .circle2 {
+        display: none;
+    }
+}
+
+.feedback {
+    position: relative;
+    z-index: 1;
+}
+
+textarea {
+    background-image: url('../img/arrow.png');
+    background-repeat: no-repeat;
+    background-position: right 5% bottom 45%;
+    border: 1px solid #000;
+    padding: 15px 100px 15px 15px;
+    outline: none;
+    resize: none; 
+}

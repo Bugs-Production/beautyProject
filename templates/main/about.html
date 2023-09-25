@@ -1,0 +1,72 @@
+{% extends 'main/layout.html' %}
+{% load static %}
+{% block link %}
+<link rel="stylesheet" href="{% static 'main/style/about.css' %}">
+{% endblock %}
+{% block title %} Обо мне {% endblock %}
+
+{% block links %}
+<ul class="navbar-nav mr-auto">
+    <li class="nav-item"><a href="{% url 'about' %}" class="nav-link">Обо мне</a></li>
+    <li class="nav-item"><a href="{% url 'home' %}" class="nav-link">Портфолио</a></li>
+    <li class="nav-item"><a href="{% url 'home' %}" class="nav-link">Отзывы</a></li>
+    <li class="nav-item"><a href="{% url 'home' %}" class="nav-link">Прайс</a></li>
+    <li class="nav-item"><a href="#" class="nav-link">+7 (812) 660-50-88</a></li>
+</ul>
+{% endblock %}
+
+{% block content %}
+<main>
+    <section class="about-me mb-5">
+        <div class="container">
+            <h2>Обо мне</h2>
+            <div class="row about-me-content mt-5">
+                <div class="about-me-text col-lg-6 col-md-6 col-12">
+                    <p>Привет! Меня зовут Валерия, и я - опытный мастер-инструктор в сфере маникюра, наращивания ногтей
+                        и создания идеального френча. Моя страсть к красоте и уходу за руками помогает мне достичь
+                        выдающихся результатов в улучшении вашего внешнего вида.</p>
+                    <p>У меня вы найдете широкий выбор модных оттенков и стильных решений для ваших ногтей. Будь то
+                        элегантный френч, яркий нейл-арт или наращивание ногтей для удлинения их ваших натуральных, у
+                        меня есть опыт и навыки, чтобы воплотить ваши мечты в реальность. Вы сможете расслабиться,
+                        насладиться процессом ухода за собой и отдохнуть от повседневной суеты. Не упустите шанс
+                        преобразить свои ногти и почувствовать себя по-настоящему особенной. Жду вас у себя в гостях,
+                        где каждая деталь заботы о вас продумана до мелочей.</p>
+                </div>
+                <div class="about-me-img col-lg-5 col-md-6 col-12">
+                    <img src="{% static 'main/img/about/about-img.jpg' %}" alt="" class="img-fluid">
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="circle col-4"></div>
+    <section class="i-have">
+        <div class="container">
+            <h2>У меня вы всегда найдете</h2>
+            <div class="row">
+                <div class="col-lg-4 col-md-12 i-have-content">
+                    <span>Вам не будет скучно!</span>
+                    <p>Наслаждайтесь хорошим настроением и безупречным маникюром в сопровождении увлекательных фильмов и
+                        вдохновляющей музыки.</p>
+                </div>
+                <div class="col-lg-4 col-md-12 i-have-content">
+                    <span>Всегда есть выбор!</span>
+                    <p>У нас вас ждет огромное разнообразие оттенков и дизайнов, чтобы удовлетворить любой вкус и
+                        подчеркнуть вашу уникальность.</p>
+                </div>
+                <div class="col-lg-4 col-md-12 i-have-content">
+                    <span>100% стерильность!</span>
+                    <p>Инструмент проходит все этапы дезинфекции и стерилизации, предусмотренные СанПин. И для каждого
+                        клиента предусмотрен индивидуальный, одноразовый набор пилок, бафов и палочек.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+{% endblock %}
+
+{% block links-footer %}
+<li><a href="{% url 'about' %}">Обо мне</a></li>
+<li><a href="{% url 'home' %}">Портфолио</a></li>
+<li><a href="{% url 'home' %}">Отзывы</a></li>
+<li><a href="{% url 'home' %}">Прайс</a></li>
+{% endblock %}

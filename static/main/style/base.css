@@ -1,0 +1,170 @@
+/* Установка шрифтов */
+
+@font-face {
+    font-family: Raleway-L;
+    src: url('../fonts/Raleway-Light.ttf');
+}
+
+@font-face {
+    font-family: Raleway-R;
+    src: url('../fonts/Raleway-Regular.ttf');
+}
+
+@font-face {
+    font-family: Cormorant;
+    src: url('../fonts/CormorantGaramond-Regular.ttf');
+
+}
+
+/* Настройка шрифтов */
+
+li, a, p {
+    font-size: 18px;
+    font-family: Raleway-L;
+    color: #000;
+}
+
+h1 {
+    font-size: 6vw;
+    color: #000;
+    font-family: Cormorant;
+}
+
+h2 {
+    font-size: 5vw;
+    color: #181818;
+    font-family: Cormorant;
+}
+
+h4 {
+    font-size: 36px;
+    color: #000;
+    font-family: Cormorant;
+}
+
+span {
+    font-family: Raleway-R;
+    font-size: 18px;
+    font-weight: bolder;
+    color: #000;
+}
+
+@media (min-width: 1200px) { 
+    h1 {
+        font-size: 80px;
+    }
+
+    h2 {
+        font-size: 72px;
+    }
+}
+
+@media (max-width: 575px) {
+    h2 {
+        font-size: 34px;
+    } 
+
+    h4 {
+        font-size: 20px;
+    }
+}
+
+@media (min-width: 576px) and (max-width: 767px) { 
+    h4 {
+        font-size: 25px;
+    }
+}
+
+/* Круг для бекграунда */
+
+.circle {
+    max-width: 335px;
+    height: 335px;
+    border-radius: 335px;
+    background-color: #FFB6C1;
+    filter: blur(125px);
+    position: absolute;
+}
+
+/* HEADER */
+
+body {
+    background-color: #fffaf3;
+}
+
+header {
+    padding-bottom: 50px;
+}
+
+header li {
+    margin: 0 10px;
+}
+
+.navbar-toggler {
+    border: none;
+}
+
+.sign-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    font-family: Raleway-R;
+    text-transform: uppercase;
+    background-color: transparent;
+    border: solid 1px;
+    padding: 13px 26px;
+    max-width: 170px;
+    margin: 0 auto;
+}
+
+.sign-button a {
+    text-decoration: none;
+}
+
+header img {
+    max-height: 120px;
+}
+
+/* footer */
+
+footer {
+    margin-top: 100px;
+    z-index: 1;
+}
+
+footer img {
+    max-height: 120px;
+}
+
+.footer-logo {
+    display: flex;
+    justify-content: center;
+}
+
+.footer-link {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-link ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: space-around;
+}
+
+footer a {
+    text-decoration: none;
+}
+
+.footer-social-media {
+    display: flex;
+    align-items: center;
+}
+
+@media (max-width: 575px) {
+    footer {
+        margin-top: 50px;
+    }
+}

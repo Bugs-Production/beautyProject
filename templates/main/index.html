@@ -1,0 +1,217 @@
+{% extends 'main/layout.html' %}
+{% load static %}
+{% block link %}
+<link rel="stylesheet" href="{% static 'main/style/style.css' %}">
+{% endblock %}
+{% block title %} Главная {% endblock %}
+
+{% block links %}
+<ul class="navbar-nav mr-auto">
+    <li class="nav-item"><a href="{% url 'about' %}" class="nav-link">Обо мне</a></li>
+    <li class="nav-item"><a href="#portfolio" class="nav-link">Портфолио</a></li>
+    <li class="nav-item"><a href="#feedback" class="nav-link">Отзывы</a></li>
+    <li class="nav-item"><a href="#price" class="nav-link">Прайс</a></li>
+    <li class="nav-item"><a href="#" class="nav-link">+7 (812) 660-50-88</a></li>
+</ul>
+{% endblock %}
+
+{% block content %}
+<main>
+    <section class="main-content">
+        <div class="container">
+            <div class="row big-img-header">
+                <div class="circle col-4"></div>
+                <div class="main-text col-8 col-sm-12">
+                    <h1>Я знаю все о красивом<br>
+                        и качественном<br>
+                        покрытии</h1>
+                </div>
+                <img src="{% static 'main/img/home/header-img.png' %}" alt="" class="col-6">
+            </div>
+            <div class="row mt-5">
+                <div class="col-2 small-img-header">
+                    <img src="{% static 'main/img/home/01.jpg' %}" alt="" class="img-fluid">
+                    <img src="{% static 'main/img/home/02.jpg' %}" alt="" class="img-fluid">
+                    <img src="{% static 'main/img/home/03.jpg' %}" alt="" class="img-fluid">
+                </div>
+            </div>
+            <div class="row align-items-center mt-5">
+                <div class="link col-md-6 mb-2 text-center">
+                    <a href="#price">Узнать стоимость</a>
+                </div>
+                <div class="sign-button col-md-3"><a href="{% url 'record' %}">Записаться</a></div>
+            </div>
+            <div class="row main-content-header mt-5">
+                <div class="col-lg-3 col-md-4 col-sm-12 text-center">
+                    <h2>2</h2>
+                    <p>года радую своих клиентов</p>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-12 text-center">
+                    <h2>1 500+</h2>
+                    <p>маникюра сделано за последний год</p>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-12 text-center">
+                    <h2>4</h2>
+                    <p>сертификита, подтверждающих мои навыки</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="services" id="price">
+        <div class="container">
+            <h2 class="col-12 text-center mb-5">Мои услуги</h2>
+            <div class="row services-title text-center mb-4">
+                <a href="#" class="col-4"><h4>Маникюр</h4></a>
+                <a href="#" class="col-4"><h4>Наращивание</h4></a>
+                <a href="#" class="col-4"><h4>Педикюр</h4></a>
+            </div>
+            <div class="circle col-4"></div>
+            <div class="row services-price">
+                <div class="services-info col-md-7 col-sm-12">
+                    <p>ОДНОТОН (снятие + маникюр + покрытие)</p>
+                    <p>1700₽</p>
+                </div>
+                <div class="services-info col-md-7 col-sm-12">
+                    <p>Снятиe и маникюр без покрытия</p>
+                    <p>1100₽</p>
+                </div>
+                <div class="services-info col-md-7 col-sm-12">
+                    <p>ФРЕНЧ</p>
+                    <p>2200₽</p>
+                </div>
+                <div class="services-info col-md-7 col-sm-12">
+                    <p>Наращивание ногтей от</p>
+                    <p>3100₽</p>
+                </div>
+                <div class="services-info col-md-7 col-sm-12">
+                    <p>SMART-педикюр без покрытия</p>
+                    <p>1700₽</p>
+                </div>
+                <div class="services-info col-md-7 col-sm-12">
+                    <p>SMART-педикюр с покрытием</p>
+                    <p>2200₽</p>
+                </div>
+                <img src="{% static 'main/img/home/services-img.png' %}" alt="" class="img-fluid col-4">
+            </div>
+        </div>
+    </section>
+    <section class="portfolio mb-5" id="portfolio">
+        <div class="container">
+            <h2 class="col-12 text-center mb-5">Портфолио</h2>
+            <div class="itc-slider" data-slider="itc-slider">
+                <div class="itc-slider-wrapper">
+                    <div class="itc-slider-items">
+                        <div class="itc-slider-item">
+                            <img src="{% static 'main/img/home/slider/s-1.jpg' %}" alt="" class="img-fluid">
+                        </div>
+                        <div class="itc-slider-item">
+                            <img src="{% static 'main/img/home/slider/s-2.jpg' %}" alt="" class="img-fluid">
+                        </div>
+                        <div class="itc-slider-item">
+                            <img src="{% static 'main/img/home/slider/s-3.jpg' %}" alt="" class="img-fluid">
+                        </div>
+                        <div class="itc-slider-item">
+                            <img src="{% static 'main/img/home/slider/s-4.PNG' %}" alt="" class="img-fluid">
+                        </div>
+                        <div class="itc-slider-item">
+                            <img src="{% static 'main/img/home/slider/s-5.PNG' %}" alt="" class="img-fluid">
+                        </div>
+                    </div>
+                </div>
+                <!-- Кнопки для перехода к предыдущему и следующему слайду -->
+                <button class="itc-slider-btn itc-slider-btn-prev"></button>
+                <button class="itc-slider-btn itc-slider-btn-next"></button>
+            </div>
+        </div>
+    </section>
+    <section class="feedback" id="feedback">
+        <div class="container">
+            <div class="row feedback-title mb-5">
+                <h2 class="col-8 mb-0">Я забочусь <br> о своих клиентах</h2>
+                <div class="feedback-title-bottom col-8">
+                    <h2>и они это ценят</h2>
+                </div>
+                <img src="{% static 'main/img/home/clients-img.png' %}" alt="" class="img-fluid col-4">
+            </div>
+            <div id="carouselExampleControls" class="carousel slide col-md-8 col-sm-12" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="feedback-client-author mb-4">
+                            <span>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="41" height="26" viewBox="0 0 41 26"
+                                     fill="none">
+                                    <path d="M3.6399 23.7587C1.27155 21.679 3.38265e-06 19.3465 2.72154e-06 15.5654C1.55821e-06 8.9119 5.64954 2.94845 13.8652 -2.42426e-06L15.9185 2.61958C8.25013 6.04899 6.75094 10.4992 6.15311 13.3051C7.38787 12.7766 9.00432 12.5922 10.5886 12.7139C14.7366 13.0314 18.0063 15.8468 18.0063 19.3465C18.0063 21.1111 17.1585 22.8035 15.6492 24.0512C14.1399 25.299 12.093 26 9.95856 26C8.7782 25.9915 7.61168 25.7889 6.5269 25.4041C5.44212 25.0194 4.46074 24.46 3.6399 23.7587ZM26.6336 23.7587C24.2652 21.679 22.9937 19.3465 22.9937 15.5654C22.9937 8.91189 28.6432 2.94845 36.8588 -6.4446e-06L38.9122 2.61957C31.2438 6.04898 29.7446 10.4992 29.1468 13.3051C30.3815 12.7766 31.998 12.5922 33.5822 12.7139C37.7303 13.0314 41 15.8467 41 19.3465C41 21.1111 40.1521 22.8035 38.6429 24.0512C37.1336 25.299 35.0866 26 32.9522 26C31.7719 25.9915 30.6053 25.7889 29.5206 25.4041C28.4358 25.0194 27.4544 24.46 26.6336 23.7587Z"
+                                          fill="black" fill-opacity="0.7"/>
+                                </svg>
+                                Ольга Григорьевна
+                            </span>
+                            <a href="#">Оставить отзыв</a>
+                        </div>
+                        <div class="feedback-clients-comment">
+                            <p class="show-text">Моя любимая студия! Удобное месторасположение, в 5 минутах от метро
+                                Чернышевская.
+                                Приятная атмосфера, все девочки очень профессиональные мастера своего дела!
+                                Очень приветливый администратор, хорошие фильмы и вкусный кофе!</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="feedback-client-author mb-4">
+                            <span>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="41" height="26" viewBox="0 0 41 26"
+                                     fill="none">
+                                    <path d="M3.6399 23.7587C1.27155 21.679 3.38265e-06 19.3465 2.72154e-06 15.5654C1.55821e-06 8.9119 5.64954 2.94845 13.8652 -2.42426e-06L15.9185 2.61958C8.25013 6.04899 6.75094 10.4992 6.15311 13.3051C7.38787 12.7766 9.00432 12.5922 10.5886 12.7139C14.7366 13.0314 18.0063 15.8468 18.0063 19.3465C18.0063 21.1111 17.1585 22.8035 15.6492 24.0512C14.1399 25.299 12.093 26 9.95856 26C8.7782 25.9915 7.61168 25.7889 6.5269 25.4041C5.44212 25.0194 4.46074 24.46 3.6399 23.7587ZM26.6336 23.7587C24.2652 21.679 22.9937 19.3465 22.9937 15.5654C22.9937 8.91189 28.6432 2.94845 36.8588 -6.4446e-06L38.9122 2.61957C31.2438 6.04898 29.7446 10.4992 29.1468 13.3051C30.3815 12.7766 31.998 12.5922 33.5822 12.7139C37.7303 13.0314 41 15.8467 41 19.3465C41 21.1111 40.1521 22.8035 38.6429 24.0512C37.1336 25.299 35.0866 26 32.9522 26C31.7719 25.9915 30.6053 25.7889 29.5206 25.4041C28.4358 25.0194 27.4544 24.46 26.6336 23.7587Z"
+                                          fill="black" fill-opacity="0.7"/>
+                                </svg>
+                                Ольга Григорьевна
+                            </span>
+                            <a href="#">Оставить отзыв</a>
+                        </div>
+                        <div class="feedback-clients-comment">
+                            <p class="show-text">Моя любимая студия! Удобное месторасположение, в 5 минутах от метро
+                                Чернышевская.
+                                Приятная атмосфера, все девочки очень профессиональные мастера своего дела!
+                                Очень приветливый администратор, хорошие фильмы и вкусный кофе!</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="feedback-client-author mb-4">
+                            <span>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="41" height="26" viewBox="0 0 41 26"
+                                     fill="none">
+                                    <path d="M3.6399 23.7587C1.27155 21.679 3.38265e-06 19.3465 2.72154e-06 15.5654C1.55821e-06 8.9119 5.64954 2.94845 13.8652 -2.42426e-06L15.9185 2.61958C8.25013 6.04899 6.75094 10.4992 6.15311 13.3051C7.38787 12.7766 9.00432 12.5922 10.5886 12.7139C14.7366 13.0314 18.0063 15.8468 18.0063 19.3465C18.0063 21.1111 17.1585 22.8035 15.6492 24.0512C14.1399 25.299 12.093 26 9.95856 26C8.7782 25.9915 7.61168 25.7889 6.5269 25.4041C5.44212 25.0194 4.46074 24.46 3.6399 23.7587ZM26.6336 23.7587C24.2652 21.679 22.9937 19.3465 22.9937 15.5654C22.9937 8.91189 28.6432 2.94845 36.8588 -6.4446e-06L38.9122 2.61957C31.2438 6.04898 29.7446 10.4992 29.1468 13.3051C30.3815 12.7766 31.998 12.5922 33.5822 12.7139C37.7303 13.0314 41 15.8467 41 19.3465C41 21.1111 40.1521 22.8035 38.6429 24.0512C37.1336 25.299 35.0866 26 32.9522 26C31.7719 25.9915 30.6053 25.7889 29.5206 25.4041C28.4358 25.0194 27.4544 24.46 26.6336 23.7587Z"
+                                          fill="black" fill-opacity="0.7"/>
+                                </svg>
+                                Ольга Григорьевна
+                            </span>
+                            <a href="{% url 'feedback' %}">Оставить отзыв</a>
+                        </div>
+                        <div class="feedback-clients-comment">
+                            <p class="show-text">Моя любимая студия! Удобное месторасположение, в 5 минутах от метро
+                                Чернышевская.
+                                Приятная атмосфера, все девочки очень профессиональные мастера своего дела!
+                                Очень приветливый администратор, хорошие фильмы и вкусный кофе!</p>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
+                        data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
+                        data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+    </section>
+</main>
+{% endblock %}
+
+{% block links-footer %}
+<li><a href="{% url 'about' %}">Обо мне</a></li>
+<li><a href="#portfolio">Портфолио</a></li>
+<li><a href="#feedback">Отзывы</a></li>
+<li><a href="#price">Прайс</a></li>
+{% endblock %}
