@@ -146,7 +146,7 @@
                                 </svg>
                                 {{ el.name }} {{ el.last_name }}
                             </span>
-                            <a href="#">Оставить отзыв</a>
+                            <a href="{% url 'feedback' %}">Оставить отзыв</a>
                         </div>
                         <div class="feedback-clients-comment">
                             <p class="show-text">{{ el.feedback }}</p>

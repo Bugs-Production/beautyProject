@@ -3,7 +3,7 @@
 {% block link %}
 <link rel="stylesheet" href="{% static 'main/style/write.css' %}">
 {% endblock %}
-{% block title %} Отзывы {% endblock %}
+{% block title %} Благодарность {% endblock %}
 
 {% block links %}
 <ul class="navbar-nav mr-auto">
@@ -17,21 +17,14 @@
 
 {% block content %}
 <main>
-    <div class="circle col-4"></div>
-    <section class="feedback">
-        <div class="container text-center">
-            <h2 class="mb-5">Красота в словах, поделитесь своими впечатлениями о маникюре</h2>
-            <form method="post">
-                {% csrf_token %}
-                {{ form.name }}
-                {{ form.last_name }}
-                {{ form.feedback }}
-                <span>{{ error }}</span>
-                <button class="sign-button mt-3" type="submit">Отправить</button>
-            </form>
+    <section>
+        <div class="container thanks-content">
+            <h2 class="text-center">Дорогая {{ feed_back.name }}</h2>
+            <p class="thanks-text">Я хочу выразить искреннюю благодарность за ваш отзыв о моих маникюрных услугах! Ваша довольность
+                моей работой - моя главная награда. Я всегда готова помочь вам создать невероятно красивые ногти. С
+                уважением, Валерия</p>
         </div>
     </section>
-    <div class="circle circle2 col-4"></div>
 </main>
 {% endblock %}
 
