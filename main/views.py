@@ -1,9 +1,11 @@
 from django.shortcuts import render
+from .models import Feedback
 
 
 # Create your views here.
 def index(request):
-    return render(request, 'main/index.html')
+    feed_back = Feedback.objects.order_by('-create_date')
+    return render(request, 'main/index.html', {'feed_back': feed_back})
 
 
 def about(request):
