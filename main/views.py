@@ -1,12 +1,14 @@
 from django.shortcuts import render, redirect
-from .models import Feedback
+from .models import Feedback, Portfolio
 from .forms import FeedbackForm
 
 
 # Create your views here.
 def index(request):
     feed_back = Feedback.objects.order_by('-create_date')
-    return render(request, 'main/index.html', {'feed_back': feed_back})
+    portfolio = Portfolio.objects.order_by('-create_date')
+
+    return render(request, 'main/index.html', {'feed_back': feed_back, 'portfolio': portfolio})
 
 
 def about(request):

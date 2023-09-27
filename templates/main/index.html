@@ -101,21 +101,11 @@
             <div class="itc-slider" data-slider="itc-slider">
                 <div class="itc-slider-wrapper">
                     <div class="itc-slider-items">
+                        {% for img in portfolio %}
                         <div class="itc-slider-item">
-                            <img src="{% static 'main/img/home/slider/s-1.jpg' %}" alt="" class="img-fluid">
+                            <img src="{{ img.img.url }}" alt="" class="img-fluid">
                         </div>
-                        <div class="itc-slider-item">
-                            <img src="{% static 'main/img/home/slider/s-2.jpg' %}" alt="" class="img-fluid">
-                        </div>
-                        <div class="itc-slider-item">
-                            <img src="{% static 'main/img/home/slider/s-3.jpg' %}" alt="" class="img-fluid">
-                        </div>
-                        <div class="itc-slider-item">
-                            <img src="{% static 'main/img/home/slider/s-4.PNG' %}" alt="" class="img-fluid">
-                        </div>
-                        <div class="itc-slider-item">
-                            <img src="{% static 'main/img/home/slider/s-5.PNG' %}" alt="" class="img-fluid">
-                        </div>
+                        {% endfor %}
                     </div>
                 </div>
                 <!-- Кнопки для перехода к предыдущему и следующему слайду -->

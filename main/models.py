@@ -14,3 +14,15 @@ class Feedback(models.Model):
 
     def __str__(self):
         return f'{self.last_name} {self.name}'
+
+
+class Portfolio(models.Model):
+    class Meta:
+        verbose_name = 'картинку'
+        verbose_name_plural = 'Картинки для портфолио'
+
+    img = models.ImageField('Картинка', upload_to='images-slider', blank=True)
+    create_date = models.DateTimeField('Дата публикации', auto_now_add=True)
+
+    def __str__(self):
+        return f'Картинка {str(self.create_date)[:10]}'
