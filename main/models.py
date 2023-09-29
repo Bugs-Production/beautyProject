@@ -1,4 +1,5 @@
 from django.db import models
+from django.core.exceptions import ValidationError
 
 
 # Create your models here.
@@ -21,7 +22,19 @@ class Portfolio(models.Model):
         verbose_name = 'картинку'
         verbose_name_plural = 'Картинки для портфолио'
 
-    img = models.ImageField('Картинка', upload_to='images-slider', blank=True)
+    def validate_image_extension(value):
+        if not value.name.endswith(
+                ('.jpg', '.JPG', '.jpeg', '.JPEG', '.png', '.PNG', '.gif', '.GIF', '.bmp', '.BMP', '.heic', '.HEIC')):
+            raise ValidationError(
+                'Неподдерживаемое расширение файла. Поддерживаются только изображения в форматах .jpg, .jpeg, .png, '
+                '.gif, heic .bmp.')
+
+    img = models.FileField(
+        blank=True,
+        upload_to='images-slider',
+        validators=[validate_image_extension],
+        verbose_name='Картинка'
+    )
     create_date = models.DateTimeField('Дата публикации', auto_now_add=True)
 
     def __str__(self):
