@@ -44,6 +44,15 @@
 
 /* services */
 
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 .services {
     margin-top: 100px;
 }
@@ -54,6 +63,7 @@
 
 .services-price {
     position: relative;
+    animation: fadeIn 1s ease-in-out;
 }
 
 .services-price img {
@@ -67,6 +77,10 @@
 .services-info {
     display: flex;
     justify-content: space-between;
+}
+
+.active-link-services {
+    border-bottom: 1px solid black;
 }
 
 @media (max-width: 575px) { 

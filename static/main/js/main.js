@@ -1,3 +1,4 @@
+// скрипт для сокращения текста в отзывах
 $(document).ready(function() {
     // 250 characters are shown by default
     var showChar = 200;
@@ -31,4 +32,29 @@ $(document).ready(function() {
         $(this).prev().toggle();
         return false;
     });
+});
+
+// скрипт для услуг
+$(document).ready(function() {
+  // Получаем все ссылки и блоки с ценами услуг
+  var serviceLinks = $('.service-link');
+  var serviceBlocks = $('.row.services-price');
+
+  // Добавляем обработчик клика на каждую ссылку
+  serviceLinks.click(function(event) {
+    event.preventDefault(); // Предотвращаем переход по ссылке
+    var targetId = $(this).data('target');
+
+    // Скрываем все блоки с ценами
+    serviceBlocks.hide();
+
+    // Удаляем класс "active-link-services" у всех ссылок
+    serviceLinks.removeClass('active-link-services');
+
+    // Отображаем только выбранный блок
+    $('#' + targetId).show();
+
+    // Добавляем класс "active-link-services" к активной ссылке
+    $(this).addClass('active-link-services');
+  });
 });

@@ -61,12 +61,15 @@
         <div class="container">
             <h2 class="col-12 text-center mb-5">Мои услуги</h2>
             <div class="row services-title text-center mb-4">
-                <a href="#" class="col-4"><h4>Маникюр</h4></a>
-                <a href="#" class="col-4"><h4>Наращивание</h4></a>
-                <a href="#" class="col-4"><h4>Педикюр</h4></a>
+                <a href="#" class="col-4 service-link active-link-services" data-target="service1">
+                    <h4>Маникюр</h4></a>
+                <a href="#" class="col-4 service-link" data-target="service2">
+                    <h4>Наращивание</h4></a>
+                <a href="#" class="col-4 service-link" data-target="service3">
+                    <h4>Педикюр</h4></a>
             </div>
             <div class="circle col-4"></div>
-            <div class="row services-price">
+            <div class="row services-price" id="service1">
                 <div class="services-info col-md-7 col-sm-12">
                     <p>ОДНОТОН (снятие + маникюр + покрытие)</p>
                     <p>1700₽</p>
@@ -92,6 +95,60 @@
                     <p>2200₽</p>
                 </div>
                 <img src="{% static 'main/img/home/services-img.png' %}" alt="" class="img-fluid col-4">
+            </div>
+            <div class="row services-price" id="service2" style="display: none">
+                <div class="services-info col-md-7 col-sm-12">
+                    <p>ОДНОТОН (снятие + маникюр + покрытие)</p>
+                    <p>1701₽</p>
+                </div>
+                <div class="services-info col-md-7 col-sm-12">
+                    <p>Снятиe и маникюр без покрытия</p>
+                    <p>1100₽</p>
+                </div>
+                <div class="services-info col-md-7 col-sm-12">
+                    <p>ФРЕНЧ</p>
+                    <p>2200₽</p>
+                </div>
+                <div class="services-info col-md-7 col-sm-12">
+                    <p>Наращивание ногтей от</p>
+                    <p>3100₽</p>
+                </div>
+                <div class="services-info col-md-7 col-sm-12">
+                    <p>SMART-педикюр без покрытия</p>
+                    <p>1700₽</p>
+                </div>
+                <div class="services-info col-md-7 col-sm-12">
+                    <p>SMART-педикюр с покрытием</p>
+                    <p>2200₽</p>
+                </div>
+                <img src="{% static 'main/img/home/foto ellipse 1.png' %}" alt="" class="img-fluid col-4">
+            </div>
+            <div class="row services-price" id="service3" style="display: none">
+                <div class="services-info col-md-7 col-sm-12">
+                    <p>ОДНОТОН (снятие + маникюр + покрытие)</p>
+                    <p>1702₽</p>
+                </div>
+                <div class="services-info col-md-7 col-sm-12">
+                    <p>Снятиe и маникюр без покрытия</p>
+                    <p>1100₽</p>
+                </div>
+                <div class="services-info col-md-7 col-sm-12">
+                    <p>ФРЕНЧ</p>
+                    <p>2200₽</p>
+                </div>
+                <div class="services-info col-md-7 col-sm-12">
+                    <p>Наращивание ногтей от</p>
+                    <p>3100₽</p>
+                </div>
+                <div class="services-info col-md-7 col-sm-12">
+                    <p>SMART-педикюр без покрытия</p>
+                    <p>1700₽</p>
+                </div>
+                <div class="services-info col-md-7 col-sm-12">
+                    <p>SMART-педикюр с покрытием</p>
+                    <p>2200₽</p>
+                </div>
+                <img src="{% static 'main/img/home/service-3-1.png' %}" alt="" class="img-fluid col-4">
             </div>
         </div>
     </section>

@@ -3,12 +3,15 @@ from django.shortcuts import render, redirect
 from .models import Feedback, Portfolio
 from .forms import FeedbackForm
 from .convertation import convert_heic_to_png
+from price.models import Service, ManicureType
 
 
 # Create your views here.
 def index(request):
     feed_back = Feedback.objects.order_by('-create_date')
     portfolio = Portfolio.objects.order_by('-create_date')
+    service = Service.objects.all()
+    manicure_type = ManicureType.objects.all()
 
     for item in portfolio:
         if item.img:  # Проверяем, что поле img не пустое
@@ -31,7 +34,8 @@ def index(request):
                     # Удаляем оригинальный HEIC файл
                     os.remove(heic_filename)
 
-    return render(request, 'main/index.html', {'feed_back': feed_back, 'portfolio': portfolio})
+    return render(request, 'main/index.html',
+                  {'feed_back': feed_back, 'portfolio': portfolio, 'service': service, 'manicure_type': manicure_type})
 
 
 def about(request):
