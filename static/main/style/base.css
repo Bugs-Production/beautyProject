@@ -92,8 +92,16 @@ body {
     background-color: #fffaf3;
 }
 
-header {
-    padding-bottom: 50px;
+.sticky-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background-color: transparent; /* Устанавливаем начальный прозрачный фон */
+    transition: background-color 0.3s ease, padding 0.3s ease; /* Добавляем анимацию для фона и отступов */
+}
+
+.sticky-header.sticky {
+    background-color: #fff; /* Цвет фона при прокрутке */
 }
 
 header li {
@@ -123,7 +131,13 @@ header li {
 }
 
 header img {
-    max-height: 120px;
+    max-height: 60px;
+}
+
+/* main */
+
+main {
+    margin-top: 50px;
 }
 
 /* footer */
@@ -138,8 +152,7 @@ footer img {
 }
 
 .footer-logo {
-    display: flex;
-    justify-content: center;
+    margin: 0 auto;
 }
 
 .footer-link {

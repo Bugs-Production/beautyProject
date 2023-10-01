@@ -17,7 +17,7 @@ class FeedbackForm(ModelForm):
                 'placeholder': 'Введите фамилию',
             }),
             'feedback': Textarea(attrs={
-                'class': 'col-md-8',
+                'class': 'col-12 col-md-8',
                 'placeholder': 'Оставьте свой отзыв',
             }),
         }

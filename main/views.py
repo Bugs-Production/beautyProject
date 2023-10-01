@@ -10,8 +10,12 @@ from price.models import Service, ManicureType
 def index(request):
     feed_back = Feedback.objects.order_by('-create_date')
     portfolio = Portfolio.objects.order_by('-create_date')
-    service = Service.objects.all()
-    manicure_type = ManicureType.objects.all()
+    services = Service.objects.all()
+
+    service_details = {}
+    for service in services:
+        manicure_types = ManicureType.objects.filter(service=service)
+        service_details[service] = {'manicure_types': manicure_types, 'image': service.img.url}
 
     for item in portfolio:
         if item.img:  # Проверяем, что поле img не пустое
@@ -34,8 +38,12 @@ def index(request):
                     # Удаляем оригинальный HEIC файл
                     os.remove(heic_filename)
 
-    return render(request, 'main/index.html',
-                  {'feed_back': feed_back, 'portfolio': portfolio, 'service': service, 'manicure_type': manicure_type})
+    return render(request, 'main/index.html', {
+        'feed_back': feed_back,
+        'portfolio': portfolio,
+        'services': services,
+        'service_details': service_details,
+    })
 
 
 def about(request):

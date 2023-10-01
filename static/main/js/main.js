@@ -1,7 +1,24 @@
+$(document).ready(function() {
+    var header = $(".sticky-header");
+    var content = $(".content");
+    var headerHeight = header.outerHeight();
+
+    $(window).scroll(function() {
+        if ($(this).scrollTop() > headerHeight) {
+            header.addClass("sticky");
+            content.css("margin-top", headerHeight);
+        } else {
+            header.removeClass("sticky");
+            content.css("margin-top", 0);
+        }
+    });
+});
+
+
 // скрипт для сокращения текста в отзывах
 $(document).ready(function() {
     // 250 characters are shown by default
-    var showChar = 200;
+    var showChar = 150;
     var dots = ".... ";
     var moreText = "eще";
     var lessText = "Скрыть";
@@ -40,19 +57,22 @@ $(document).ready(function() {
   var serviceLinks = $('.service-link');
   var serviceBlocks = $('.row.services-price');
 
+  // Добавляем класс "active-link-services" к первой ссылке
+  serviceLinks.first().addClass('active-link-services');
+
   // Добавляем обработчик клика на каждую ссылку
   serviceLinks.click(function(event) {
     event.preventDefault(); // Предотвращаем переход по ссылке
     var targetId = $(this).data('target');
 
-    // Скрываем все блоки с ценами
-    serviceBlocks.hide();
+    // Удаляем класс "active" у всех блоков
+    serviceBlocks.removeClass('service-active');
 
     // Удаляем класс "active-link-services" у всех ссылок
     serviceLinks.removeClass('active-link-services');
 
-    // Отображаем только выбранный блок
-    $('#' + targetId).show();
+    // Добавляем класс "active" к выбранному блоку
+    $('#' + targetId).addClass('service-active');
 
     // Добавляем класс "active-link-services" к активной ссылке
     $(this).addClass('active-link-services');

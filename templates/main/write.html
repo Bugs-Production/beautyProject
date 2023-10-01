@@ -33,3 +33,10 @@
     <div class="circle circle2 col-4"></div>
 </main>
 {% endblock %}
+
+{% block links-footer %}
+<li><a href="{% url 'about' %}">Обо мне</a></li>
+<li><a href="{% url 'home' %}">Портфолио</a></li>
+<li><a href="{% url 'home' %}">Отзывы</a></li>
+<li><a href="{% url 'home' %}">Прайс</a></li>
+{% endblock %}

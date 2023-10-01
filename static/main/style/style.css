@@ -64,6 +64,11 @@
 .services-price {
     position: relative;
     animation: fadeIn 1s ease-in-out;
+    display: none;
+}
+
+.service-active {
+    display: block;
 }
 
 .services-price img {
@@ -83,15 +88,29 @@
     border-bottom: 1px solid black;
 }
 
+.services .sign-button {
+    margin: initial;
+    position: relative;
+}
+
 @media (max-width: 575px) { 
     .services-price img {
         display: none;
+    }
+    .services .sign-button {
+        margin: 0 auto;
     }
 }
 
 @media (min-width: 576px) and (max-width: 767px) { 
     .services-price img {
         display: none;
+    }
+}
+
+@media (min-width: 991px) {
+    .services {
+        margin-bottom: 200px;
     }
 }
 
