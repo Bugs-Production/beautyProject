@@ -51,7 +51,11 @@ def about(request):
 
 
 def write(request):
-    return render(request, 'main/write.html')
+    services = Service.objects.all()
+
+    return render(request, 'main/write.html', {
+        'services': services,
+    })
 
 
 def feedback(request):

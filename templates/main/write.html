@@ -21,11 +21,16 @@
     <section class="write">
         <div class="container text-center">
             <h2 class="mb-5">Запишитесь на маникюр, ваши красивые ногти ждут</h2>
-            <form action="" method="">
+            <form method="post">
+                {% csrf_token %}
                 <input type="text" placeholder="Введите имя" class="col-12 col-md-8 mb-3">
                 <input type="text" placeholder="Введите фамилию" class="col-12 col-md-8 mb-3">
-                <input type="text" placeholder="Вид услуги" class="col-12 col-md-8 mb-3">
                 <input type="text" placeholder="Номер телефона" class="col-12 col-md-8 mb-3">
+                <div class="write-service mb-4 mt-4">
+                    {% for el in services %}
+                    <button class="bubbly-button col-12 mb-3">{{ el.name_service}}</button>
+                    {% endfor %}
+                </div>
                 <button class="sign-button">Записаться</button>
             </form>
         </div>
