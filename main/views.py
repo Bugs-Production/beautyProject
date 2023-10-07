@@ -1,9 +1,9 @@
 import os
 from django.shortcuts import render, redirect
 from .models import Feedback, Portfolio
-from .forms import FeedbackForm
+from .forms import FeedbackForm, OrderForm
 from .convertation import convert_heic_to_png
-from price.models import Service, ManicureType
+from price.models import Service, ManicureType, Order
 
 
 # Create your views here.
@@ -51,10 +51,17 @@ def about(request):
 
 
 def write(request):
-    services = Service.objects.all()
+    if request.method == 'POST':
+        form = OrderForm(request.POST)
+        if form.is_valid():
+            form.save()
+        else:
+            error = 'Заполните пожалуйста поле'
+
+    form = OrderForm()
 
     return render(request, 'main/write.html', {
-        'services': services,
+        'form': form,
     })
 
 

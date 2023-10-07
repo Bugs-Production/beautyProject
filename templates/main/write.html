@@ -23,15 +23,14 @@
             <h2 class="mb-5">Запишитесь на маникюр, ваши красивые ногти ждут</h2>
             <form method="post">
                 {% csrf_token %}
-                <input type="text" placeholder="Введите имя" class="col-12 col-md-8 mb-3">
-                <input type="text" placeholder="Введите фамилию" class="col-12 col-md-8 mb-3">
-                <input type="text" placeholder="Номер телефона" class="col-12 col-md-8 mb-3">
-                <div class="write-service mb-4 mt-4">
-                    {% for el in services %}
-                    <button class="bubbly-button col-12 mb-3">{{ el.name_service}}</button>
-                    {% endfor %}
-                </div>
-                <button class="sign-button">Записаться</button>
+                {{ form.name }}
+                {{ form.last_name }}
+                {{ form.phone_number }}
+                {% for service in form.services %}
+                <button type="button" class="col-md-4 col-12">{{ service }}</button>
+                {% endfor %}
+                {{ form.manicure_types }}
+                <button class="sign-button" type="submit">Записаться</button>
             </form>
         </div>
     </section>
