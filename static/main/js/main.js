@@ -78,3 +78,60 @@ $(document).ready(function() {
     $(this).addClass('active-link-services');
   });
 });
+
+// скрипт для записи на маникюр
+document.addEventListener("DOMContentLoaded", function() {
+    // Находим все кнопки выбора маникюра
+    const serviceButtons = document.querySelectorAll('[data-manicure-id]');
+
+    // Находим все элементы с видами маникюра
+    const manicureTypes = document.querySelectorAll('.manicure-type');
+
+    // Добавляем обработчики событий для кнопок выбора маникюра
+    serviceButtons.forEach(function(button) {
+        button.addEventListener('click', function() {
+            const manicureId = button.getAttribute('data-manicure-id');
+
+            // Определяем вид маникюра, соответствующий выбранной кнопке
+            const selectedManicure = document.getElementById('manicure_type_' + manicureId);
+
+            // Проверяем текущее состояние видов маникюра и скрываем их, если они уже отображены
+            manicureTypes.forEach(function(manicureType) {
+                if (manicureType.style.display === 'block' && manicureType !== selectedManicure) {
+                    manicureType.style.display = 'none';
+                }
+            });
+
+            // Переключаем состояние видимости выбранного вида маникюра
+            if (selectedManicure) {
+                if (selectedManicure.style.display === 'block') {
+                    selectedManicure.style.display = 'none';
+                } else {
+                    selectedManicure.style.display = 'block';
+                }
+            }
+        });
+    });
+});
+
+var animateElement = function(e) {
+  e.preventDefault();
+
+  var currentTarget = e.currentTarget;
+
+  if (currentTarget) {
+    currentTarget.classList.remove('animate');
+    void currentTarget.offsetWidth; // Триггер рефлоу, чтобы перезапустить анимацию
+    currentTarget.classList.add('animate');
+
+    setTimeout(function(){
+      currentTarget.classList.remove('animate');
+    }, 700);
+  }
+};
+
+var bubblyButtons = document.querySelectorAll(".bubbly-button");
+
+for (var i = 0; i < bubblyButtons.length; i++) {
+  bubblyButtons[i].addEventListener('click', animateElement, false);
+}

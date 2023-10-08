@@ -44,10 +44,32 @@ class Order(models.Model):
     name = models.CharField('Имя', max_length=50, blank=False)
     last_name = models.CharField('Фамилия', max_length=50, blank=False)
     phone_number = models.CharField('Номер телефона', max_length=15, blank=False)
-    services = models.ManyToManyField(Service, verbose_name='Вид услуги')
-    manicure_types = models.ManyToManyField(ManicureType, verbose_name='Виды маникюра', blank=True)
+    services = models.ManyToManyField(Service, verbose_name='Вид услуги', blank=True)
+    manicure_types_service1 = models.ManyToManyField(
+        ManicureType,
+        verbose_name='Маникюр',
+        blank=True,
+        related_name='orders_service1',
+        limit_choices_to={'service__name_service': 'Маникюр'}
+    )
 
-    def str(self):
+    manicure_types_service2 = models.ManyToManyField(
+        ManicureType,
+        verbose_name='Наращивание',
+        blank=True,
+        related_name='orders_service2',
+        limit_choices_to={'service__name_service': 'Наращивание'}
+    )
+
+    manicure_types_service3 = models.ManyToManyField(
+        ManicureType,
+        verbose_name='Педикюр',
+        blank=True,
+        related_name='orders_service3',
+        limit_choices_to={'service__name_service': 'Педикюр'}
+    )
+
+    def __str__(self):
         return f'{self.name} {self.last_name}'
 
 
@@ -57,27 +79,25 @@ class OrderAdmin(admin.ModelAdmin):
         'last_name',
         'phone_number',
         'display_manicure_types',
-        'total_price',
+        'total_cost',
         'create_date'
     )
-    list_filter = ('services',)
 
     def display_manicure_types(self, obj):
-        # Получить выбранные виды маникюра для данного заказа
-        manicure_types = obj.manicure_types.all()
-
-        # Преобразовать их в строку, разделенную запятыми, и вернуть
-        return ', '.join(str(man) for man in manicure_types)
+        return ", ".join([str(man) for man in obj.manicure_types_service1.all()] +
+                         [str(man) for man in obj.manicure_types_service2.all()] +
+                         [str(man) for man in obj.manicure_types_service3.all()])
 
     display_manicure_types.short_description = 'Виды маникюра'
 
-    def total_price(self, obj):
-        # Получить выбранные виды маникюра для данного заказа
-        manicure_types = obj.manicure_types.all()
-
-        # Посчитать общую сумму цен на выбранные виды маникюра
-        total = sum(man.price for man in manicure_types)
-
+    def total_cost(self, obj):
+        total = 0
+        for manicure_type in obj.manicure_types_service1.all():
+            total += manicure_type.price
+        for manicure_type in obj.manicure_types_service2.all():
+            total += manicure_type.price
+        for manicure_type in obj.manicure_types_service3.all():
+            total += manicure_type.price
         return total
 
-    total_price.short_description = 'Общая сумма'
+    total_cost.short_description = 'Сумма записи'

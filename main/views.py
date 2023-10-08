@@ -3,7 +3,7 @@ from django.shortcuts import render, redirect
 from .models import Feedback, Portfolio
 from .forms import FeedbackForm, OrderForm
 from .convertation import convert_heic_to_png
-from price.models import Service, ManicureType, Order
+from price.models import Service, ManicureType
 
 
 # Create your views here.
@@ -54,11 +54,14 @@ def write(request):
     if request.method == 'POST':
         form = OrderForm(request.POST)
         if form.is_valid():
-            form.save()
-        else:
-            error = 'Заполните пожалуйста поле'
-
-    form = OrderForm()
+            if (form.cleaned_data['manicure_types_service1'] or
+                    form.cleaned_data['manicure_types_service2'] or
+                    form.cleaned_data['manicure_types_service3']):
+                form.save()
+            else:
+                form.add_error('manicure_types_service1', 'Выберите хотя бы один вид маникюра')
+    else:
+        form = OrderForm()
 
     return render(request, 'main/write.html', {
         'form': form,

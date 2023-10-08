@@ -1,5 +1,5 @@
 from .models import Feedback
-from price.models import Order
+from price.models import Order, Service, ManicureType
 from django.forms import ModelForm, TextInput, Textarea
 from django import forms
 
@@ -28,8 +28,8 @@ class FeedbackForm(ModelForm):
 class OrderForm(ModelForm):
     class Meta:
         model = Order
-        fields = ['name', 'last_name', 'phone_number', 'services', 'manicure_types']
-
+        fields = ['name', 'last_name', 'phone_number', 'services', 'manicure_types_service1', 'manicure_types_service2',
+                  'manicure_types_service3']
         widgets = {
             'name': TextInput(attrs={
                 'class': 'col-12 col-md-8 mb-3',
@@ -43,6 +43,27 @@ class OrderForm(ModelForm):
                 'class': 'col-12 col-md-8 mb-3',
                 'placeholder': 'Номер телефона',
             }),
-            'manicure_types': forms.CheckboxSelectMultiple(),
-            'services': forms.CheckboxSelectMultiple(),
         }
+
+    services = forms.ModelMultipleChoiceField(
+        queryset=Service.objects.all(),
+        required=False,
+    )
+
+    manicure_types_service1 = forms.ModelMultipleChoiceField(
+        queryset=ManicureType.objects.filter(service__name_service='Маникюр'),
+        widget=forms.CheckboxSelectMultiple,
+        required=False
+    )
+
+    manicure_types_service2 = forms.ModelMultipleChoiceField(
+        queryset=ManicureType.objects.filter(service__name_service='Наращивание'),
+        widget=forms.CheckboxSelectMultiple,
+        required=False
+    )
+
+    manicure_types_service3 = forms.ModelMultipleChoiceField(
+        queryset=ManicureType.objects.filter(service__name_service='Педикюр'),
+        widget=forms.CheckboxSelectMultiple,
+        required=False
+    )

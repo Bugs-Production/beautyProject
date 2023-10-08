@@ -26,10 +26,23 @@
                 {{ form.name }}
                 {{ form.last_name }}
                 {{ form.phone_number }}
-                {% for service in form.services %}
-                <button type="button" class="col-md-4 col-12">{{ service }}</button>
-                {% endfor %}
-                {{ form.manicure_types }}
+                <div class="row service-buttons">
+                    {% for service in form.services %}
+                    <div class="col-12 col-md-4 mt-3 mb-5">
+                        <button type="button" class="bubbly-button" data-manicure-id="{{ forloop.counter }}">{{ service }}</button>
+                        <div id="manicure_type_{{ forloop.counter }}" class="manicure-type hidden">
+                            {% if forloop.counter == 1 %}
+                            {{ form.manicure_types_service1 }}
+                            {% elif forloop.counter == 2 %}
+                            {{ form.manicure_types_service2 }}
+                            {% elif forloop.counter == 3 %}
+                            {{ form.manicure_types_service3 }}
+                            {% endif %}
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+                {{ form.manicure_types_service1.errors }}
                 <button class="sign-button" type="submit">Записаться</button>
             </form>
         </div>
