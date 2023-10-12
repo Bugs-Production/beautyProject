@@ -3,7 +3,7 @@ from django.shortcuts import render, redirect
 from .models import Feedback, Portfolio
 from .forms import FeedbackForm, OrderForm
 from .convertation import convert_heic_to_png
-from price.models import Service, ManicureType
+from price.models import Service, ManicureType, Order
 
 
 # Create your views here.
@@ -58,6 +58,7 @@ def write(request):
                     form.cleaned_data['manicure_types_service2'] or
                     form.cleaned_data['manicure_types_service3']):
                 form.save()
+                return redirect('confirmed')
             else:
                 form.add_error('manicure_types_service1', 'Выберите хотя бы один вид маникюра')
     else:
@@ -93,3 +94,9 @@ def thanks(request):
     feed_back = Feedback.objects.order_by('-create_date')[0]
 
     return render(request, 'main/thanks.html', {'feed_back': feed_back})
+
+
+def write_confirmed(request):
+    order = Order.objects.order_by('-create_date')[0]
+
+    return render(request, 'main/write_confirmed.html', {'order': order})

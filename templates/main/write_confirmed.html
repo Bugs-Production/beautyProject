@@ -1,0 +1,43 @@
+{% extends 'main/layout.html' %}
+{% load static %}
+{% block link %}
+<link rel="stylesheet" href="{% static 'main/style/write.css' %}">
+{% endblock %}
+{% block title %} Подтверждение {% endblock %}
+
+{% block links %}
+<ul class="navbar-nav mr-auto">
+    <li class="nav-item"><a href="{% url 'about' %}" class="nav-link">Обо мне</a></li>
+    <li class="nav-item"><a href="{% url 'home' %}" class="nav-link">Портфолио</a></li>
+    <li class="nav-item"><a href="{% url 'home' %}" class="nav-link">Отзывы</a></li>
+    <li class="nav-item"><a href="{% url 'home' %}" class="nav-link">Прайс</a></li>
+    <li class="nav-item"><a href="#" class="nav-link">+7 (812) 660-50-88</a></li>
+</ul>
+{% endblock %}
+
+{% block content %}
+<main>
+    <section>
+        <div class="container thanks-content">
+            <h2 class="text-center mb-3">Дорогая {{ order.name }}</h2>
+            <p class="thanks-text">Спасибо, что выбрали меня, для вашего маникюра! Я ценю ваш интерес к моим
+                услугам.</p>
+            <p class="thanks-text">Я свяжусь с вами по указанному номеру телефона, чтобы уточнить детали вашей записи и
+                назначить удобное
+                для вас время.</p>
+            <p class="thanks-text">С нетерпением жду встречи с вами! Если вам потребуется изменить или отменить запись,
+                пожалуйста,
+                свяжитесь со мной по номеру +7 917 505-78-44</p>
+            <p class="thanks-text text-end">С наилучшими пожеланиями
+                Валерия, мастер инструктор по маникюру</p>
+        </div>
+    </section>
+</main>
+{% endblock %}
+
+{% block links-footer %}
+<li><a href="{% url 'about' %}">Обо мне</a></li>
+<li><a href="{% url 'home' %}">Портфолио</a></li>
+<li><a href="{% url 'home' %}">Отзывы</a></li>
+<li><a href="{% url 'home' %}">Прайс</a></li>
+{% endblock %}
