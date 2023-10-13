@@ -1,5 +1,6 @@
 from rest_framework import serializers
 from price.models import Order, ManicureType, Service
+from courses.models import CourseWrite, Course
 
 
 class ManicureTypeSerializer(serializers.ModelSerializer):
@@ -26,4 +27,21 @@ class OrderSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Order
+        fields = '__all__'
+
+
+class CourseSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Course
+        fields = ('name',)
+
+
+class CourseWriteSerializer(serializers.ModelSerializer):
+    name = serializers.CharField()
+    last_name = serializers.CharField()
+    phone_number = serializers.CharField()
+    courses = CourseSerializer()
+
+    class Meta:
+        model = CourseWrite
         fields = '__all__'

@@ -1,9 +1,9 @@
 {% extends 'main/layout.html' %}
 {% load static %}
 {% block link %}
-<link rel="stylesheet" href="{% static 'main/style/write.css' %}">
+<link rel="stylesheet" href="{% static 'main/style/courses.css' %}">
 {% endblock %}
-{% block title %} Отзывы {% endblock %}
+{% block title %} Курсы {% endblock %}
 
 {% block links %}
 <ul class="navbar-nav mr-auto">
@@ -17,20 +17,23 @@
 
 {% block content %}
 <main>
-    <div class="circle col-4"></div>
-    <section class="feedback">
-        <div class="container text-center">
-            <h2 class="mb-5">Красота в словах, поделитесь своими впечатлениями о маникюре</h2>
-            <form method="post">
-                {% csrf_token %}
-                {{ form.name }}
-                {{ form.last_name }}
-                {{ form.feedback }}
-                <button class="sign-button mt-3" type="submit">Отправить</button>
-            </form>
+    <section class="courses">
+        <div class="container">
+            <h1 class="text-center">Станьте мастером маникюра </br>с моими эксклюзивными курсами</h1>
+            <div class="row courses-content mt-5">
+                {% for course in courses %}
+                <div class="course col-10 col-md-3 mb-5">
+                    <h4 class="text-center">{{ course.name }}</h4>
+                    <img src="{{ course.img.url }}" alt="" class="img-fluid">
+                    <div class="course-description">
+                        <p>{{ course.mini_description|linebreaks|safe }}</p>
+                    </div>
+                    <div class="sign-button course-button"><a href="{% url 'course' slug=course.slug %}">Подробнее</a></div>
+                </div>
+                {% endfor %}
+            </div>
         </div>
     </section>
-    <div class="circle circle2 col-4"></div>
 </main>
 {% endblock %}
 

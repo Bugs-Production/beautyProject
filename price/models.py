@@ -38,12 +38,12 @@ class ManicureTypeAdmin(admin.ModelAdmin):
 class Order(models.Model):
     class Meta:
         verbose_name = 'запись'
-        verbose_name_plural = 'Записи'
+        verbose_name_plural = 'Записи на маникюр'
 
     create_date = models.DateTimeField('Дата записи', auto_now_add=True)
     name = models.CharField('Имя', max_length=50, blank=False)
     last_name = models.CharField('Фамилия', max_length=50, blank=False)
-    phone_number = models.CharField('Номер телефона', max_length=15, blank=False)
+    phone_number = models.CharField('Номер телефона', max_length=18, blank=False)
     services = models.ManyToManyField(Service, verbose_name='Вид услуги', blank=True)
     manicure_types_service1 = models.ManyToManyField(
         ManicureType,

@@ -1,9 +1,12 @@
 import os
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .models import Feedback, Portfolio
-from .forms import FeedbackForm, OrderForm
+from .forms import FeedbackForm, OrderForm, CourseForm
 from .convertation import convert_heic_to_png
 from price.models import Service, ManicureType, Order
+from courses.models import Course, CourseWrite
+from django.views.generic.list import ListView
+from django.views.generic.detail import DetailView
 
 
 # Create your views here.
@@ -100,3 +103,38 @@ def write_confirmed(request):
     order = Order.objects.order_by('-create_date')[0]
 
     return render(request, 'main/write_confirmed.html', {'order': order})
+
+
+class CoursesView(ListView):
+    model = Course
+    template_name = 'main/courses.html'
+    context_object_name = 'courses'
+
+
+class CourseView(DetailView):
+    model = Course
+    template_name = 'main/course.html'
+    context_object_name = 'course'
+
+
+def write_course(request, course_slug):
+    course = get_object_or_404(Course, slug=course_slug)
+
+    if request.method == 'POST':
+        form = CourseForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('course-confirmed')
+
+    form = CourseForm()
+
+    return render(request, 'main/course_write.html', {
+        'form': form,
+        'course': course,
+    })
+
+
+def course_confirmed(request):
+    order = CourseWrite.objects.order_by('-create_date')[0]
+
+    return render(request, 'main/course_confirmed.html', {'order': order})

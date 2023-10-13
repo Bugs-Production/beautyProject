@@ -1,6 +1,7 @@
 from .models import Feedback
 from price.models import Order, Service, ManicureType
-from django.forms import ModelForm, TextInput, Textarea
+from courses.models import CourseWrite, Course
+from django.forms import ModelForm, TextInput, Textarea, Select
 from django import forms
 
 
@@ -66,4 +67,33 @@ class OrderForm(ModelForm):
         queryset=ManicureType.objects.filter(service__name_service='Педикюр'),
         widget=forms.CheckboxSelectMultiple,
         required=False
+    )
+
+
+class CourseForm(ModelForm):
+    class Meta:
+        model = CourseWrite
+        fields = ['name', 'last_name', 'phone_number', 'courses']
+
+        widgets = {
+            'name': TextInput(attrs={
+                'class': 'col-12 col-md-8 mb-3',
+                'placeholder': 'Введите имя',
+            }),
+            'last_name': TextInput(attrs={
+                'class': 'col-12 col-md-8 mb-3',
+                'placeholder': 'Введите фамилию',
+            }),
+            'phone_number': TextInput(attrs={
+                'class': 'col-12 col-md-8 mb-3',
+                'placeholder': 'Номер телефона',
+            }),
+        }
+
+    courses = forms.ModelChoiceField(
+        queryset=Course.objects.all(),
+        empty_label="Выберите курс",
+        widget=Select(attrs={
+            'class': 'col-12 col-md-8 mb-3 form-select-lg',
+        })
     )

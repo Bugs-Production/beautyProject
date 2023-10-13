@@ -20,29 +20,13 @@
     <div class="circle col-4"></div>
     <section class="write">
         <div class="container text-center">
-            <h2 class="mb-5">Запишитесь на маникюр, ваши красивые ногти ждут</h2>
+            <h2 class="mb-5">Маникюр мечты </br> Ваш путь к профессиональному мастерству</h2>
             <form method="post">
                 {% csrf_token %}
                 {{ form.name }}
                 {{ form.last_name }}
                 {{ form.phone_number }}
-                <div class="row service-buttons">
-                    {% for service in form.services %}
-                    <div class="col-12 col-md-4 mt-3 mb-5">
-                        <button type="button" class="bubbly-button" data-manicure-id="{{ forloop.counter }}">{{ service }}</button>
-                        <div id="manicure_type_{{ forloop.counter }}" class="manicure-type hidden">
-                            {% if forloop.counter == 1 %}
-                            {{ form.manicure_types_service1 }}
-                            {% elif forloop.counter == 2 %}
-                            {{ form.manicure_types_service2 }}
-                            {% elif forloop.counter == 3 %}
-                            {{ form.manicure_types_service3 }}
-                            {% endif %}
-                        </div>
-                    </div>
-                    {% endfor %}
-                </div>
-                {{ form.manicure_types_service1.errors }}
+                {{ form.courses }}
                 <button class="sign-button" type="submit">Записаться</button>
             </form>
         </div>

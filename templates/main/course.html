@@ -1,0 +1,52 @@
+{% extends 'main/layout.html' %}
+{% load static %}
+{% block link %}
+<link rel="stylesheet" href="{% static 'main/style/courses.css' %}">
+{% endblock %}
+{% block title %} Курсы {% endblock %}
+
+{% block links %}
+<ul class="navbar-nav mr-auto">
+    <li class="nav-item"><a href="{% url 'about' %}" class="nav-link">Обо мне</a></li>
+    <li class="nav-item"><a href="{% url 'courses' %}" class="nav-link">Курсы</a></li>
+    <li class="nav-item"><a href="{% url 'home' %}" class="nav-link">Портфолио</a></li>
+    <li class="nav-item"><a href="{% url 'home' %}" class="nav-link">Отзывы</a></li>
+    <li class="nav-item"><a href="{% url 'home' %}" class="nav-link">Прайс</a></li>
+</ul>
+{% endblock %}
+
+{% block content %}
+<main>
+    <section class="course-detailed">
+        <div class="container">
+            <h1 class="text-center">{{ course.name }}</h1>
+            <div class="row course-detailed-content mt-5">
+                <div class="course-detailed-content-left col-12 col-md-8">
+                    <div class="course-detaled-mini-description mb-5">
+                        <p><span>Группа</span> - {{ course.count_group }}</p>
+                        <p><span>Длительность курса</span> - {{ course.time_course }}</p>
+                        <p><span>Сертификат</span> - {{ course.certificate }}</p>
+                        <p><span>Стоимость</span> - {{ course.price }} рублей</p>
+                    </div>
+                    <div class="course-detailed-description">
+                        <p>{{ course.description }}</p>
+                    </div>
+                </div>
+                <div class="course-detailed-content-right col-12 col-md-4">
+                    <img src="{{ course.img.url }}" alt="" class="img-fluid">
+                </div>
+            </div>
+            <div class="sign-button sign-course mt-5"><a href="{% url 'enroll-course' course_slug=course.slug %}">Хочу
+                на курс</a></div>
+        </div>
+    </section>
+</main>
+{% endblock %}
+
+{% block links-footer %}
+<li><a href="{% url 'about' %}">Обо мне</a></li>
+<li class="nav-item"><a href="{% url 'courses' %}" class="nav-link">Курсы</a></li>
+<li><a href="{% url 'home' %}">Портфолио</a></li>
+<li><a href="{% url 'home' %}">Отзывы</a></li>
+<li><a href="{% url 'home' %}">Прайс</a></li>
+{% endblock %}
