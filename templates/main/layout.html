@@ -6,6 +6,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'main/bootstrap/dist/css/bootstrap.css' %}">
+    <link type="image/x-icon" href="{% static 'main/img/header-footer/logo.ico' %}" rel="shortcut icon">
+    <link type="Image/x-icon" href="{% static 'main/img/header-footer/logo.ico' %}" rel="icon">
     {% block link %}
     {% endblock %}
     <title>{% block title %} {% endblock %}</title>
@@ -40,8 +42,11 @@
             </ul>
         </div>
         <div class="row footer-social-media">
-            <a href="#" class="col-6 text-center"><img src="{% static 'main/img/header-footer/gmail.png' %}" alt=""></a>
-            <a href="#" class="col-6 text-center"><img src="{% static 'main/img/header-footer/instagram.png' %}" alt=""></a>
+            <a href="https://www.Valerinid@gmail.com/" class="col-6 text-center"><img src="{% static 'main/img/header-footer/gmail.png' %}" alt=""></a>
+            <a href="https://instagram.com/valeriyanid?igshid=MzRlODBiNWFlZA==" class="col-6 text-center"><img src="{% static 'main/img/header-footer/instagram.png' %}" alt=""></a>
+        </div>
+        <div class="row mt-3">
+            <a href="https://github.com/Bugs-Production" class="text-end "><span class="my-brand">©Bugs-Production</span></a>
         </div>
     </div>
 </footer>
