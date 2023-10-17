@@ -9,4 +9,4 @@ RUN pip install -r requirements.txt
 
 ENV DJANGO_SETTINGS_MODULE=valeriyaSite.settings
 
-ENTRYPOINT ["python", "bot/telegram_bot.py", "&&", "python", "manage.py", "runserver", "0.0.0.0:80"]
+CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
