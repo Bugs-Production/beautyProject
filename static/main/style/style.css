@@ -121,12 +121,6 @@
     margin-top: 100px;
 }
 
-.portfolio img {
-    height: -webkit-fill-available;
-    object-fit: cover;
-    max-width: 100%;
-}
-
 /* Реализация слайдера */
 
 .itc-slider {
