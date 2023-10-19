@@ -146,7 +146,7 @@ textarea {
 /* Стили для класса .bubbly-button */
 .bubbly-button {
   font-family: 'Helvetica', 'Arial', sans-serif;
-  display: inline-block;
+  display: inline-flex;
   max-width: 200px;
   font-size: 1em;
   padding: 1em 2em;
@@ -158,8 +158,9 @@ textarea {
   border: none;
   cursor: pointer;
   position: relative;
-  transition: transform ease-in 0.1s, box-shadow ease-in 0.25s;
+  transition: transform cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.3s, box-shadow cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.5s;
   box-shadow: 0 2px 25px rgba(255, 0, 130, 0.5);
+  -webkit-box-shadow: 0 2px 25px rgba(255, 0, 130, 0.5);
 }
 
 .bubbly-button:focus {
