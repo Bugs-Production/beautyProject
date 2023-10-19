@@ -121,10 +121,6 @@
     margin-top: 100px;
 }
 
-.portfolio img {
-    height: -webkit-fill-available;
-}
-
 /* Реализация слайдера */
 
 .itc-slider {
