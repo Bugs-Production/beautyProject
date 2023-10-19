@@ -123,9 +123,8 @@
 
 .portfolio img {
     height: -webkit-fill-available;
-    width: -webkit-fill-available;
     object-fit: cover;
-    max-height: 100%;
+    max-width: 100%;
 }
 
 /* Реализация слайдера */
