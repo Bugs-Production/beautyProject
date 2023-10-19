@@ -12,7 +12,7 @@ last_processed_date_course = ''
 
 @dp.message_handler(commands=['start'])
 async def get_orders(message: types.Message):
-    url = 'http://127.0.0.1:8000/bot/'
+    url = 'http://valeri-nid.ru/bot/'
     response = requests.get(url)
 
     if response.status_code == 200:
@@ -28,7 +28,7 @@ async def check_for_new_records():
     global last_processed_date  # Объявляем переменную как глобальную
 
     while True:
-        url = 'http://127.0.0.1:8000/bot/'
+        url = 'http://valeri-nid.ru/bot/'
 
         response = requests.get(url)
 
@@ -78,7 +78,7 @@ async def check_for_new_records_courses():
     global last_processed_date_course  # Объявляем переменную как глобальную
 
     while True:
-        url = 'http://127.0.0.1:8000/bot/course'
+        url = 'http://valeri-nid.ru/bot/course'
 
         response = requests.get(url)
 
