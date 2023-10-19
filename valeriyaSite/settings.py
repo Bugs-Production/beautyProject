@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-!q3dgix1=**t%k@dqv1o@+$x#xx68nsb_l5_ht!ca7i3ey!6rw
 DEBUG = True
 
 ALLOWED_HOSTS = ['valeri-nid.ru']
-CSRF_TRUSTED_ORIGINS = ['https://valeri-nid.ru/']
+CSRF_TRUSTED_ORIGINS = ['https://valeri-nid.ru']
 
 # Application definition
 
