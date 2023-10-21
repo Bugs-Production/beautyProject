@@ -71,7 +71,7 @@ async def check_for_new_records():
             print(f'Ошибка: {response.status_code}')
             print(response.text)
 
-        await asyncio.sleep(5)
+        await asyncio.sleep(60)
 
 
 async def check_for_new_records_courses():
@@ -110,7 +110,7 @@ async def check_for_new_records_courses():
             print(f'Ошибка: {response.status_code}')
             print(response.text)
 
-        await asyncio.sleep(5)
+        await asyncio.sleep(60)
 
 
 if __name__ == "__main__":
