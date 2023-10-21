@@ -29,7 +29,9 @@
                 <div class="row service-buttons">
                     {% for service in form.services %}
                     <div class="col-12 col-md-4 mt-3 mb-5">
-                        <button type="button" class="bubbly-button" data-manicure-id="{{ forloop.counter }}">{{ service }}</button>
+                        <button type="button" class="bubbly-button" data-manicure-id="{{ forloop.counter }}">
+                            <div>{{ service }}</div>
+                        </button>
                         <div id="manicure_type_{{ forloop.counter }}" class="manicure-type hidden">
                             {% if forloop.counter == 1 %}
                             {{ form.manicure_types_service1 }}
